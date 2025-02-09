@@ -2,13 +2,18 @@ import joblib
 import streamlit as st
 import pandas as pd
 from streamlit_option_menu import option_menu
+import os
+
+# Use relative path
+
 
 st.set_page_config(page_title="Prediction of Disease Outbreaks",
                    layout="wide",
                    page_icon="doctor")
 
 # Load trained models
-diabetes_model = joblib.load(r"C:\Disease outbreak\diabetes_model.pkl")  
+diabetes_model = joblib.load(os.path.join(os.getcwd(), "diabetes_model.pkl"))
+#diabetes_model = joblib.load(r"C:\Disease outbreak\diabetes_model.pkl")  
 heart_disease_model = joblib.load(r"C:\Disease outbreak\heart_disease_model.pkl")  
 parkinsons_model = joblib.load(r"C:\Disease outbreak\parkinsons_model.pkl")  
 
